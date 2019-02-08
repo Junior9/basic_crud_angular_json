@@ -10,7 +10,7 @@
   <tbody>
     <tr *ngFor="let record of data">
       <td scope="row"> {{record.id}} </td>
-      <td (click)="update(record)"> {{record.name}} </td>
+      <td (click)="updateForm(record)"> {{record.name}} </td>
       <td>{{record.email}}</td>
       <td> <button  (click)="delete(record.id)" class="btn text-light bg-danger">X</button> </td>
     </tr>

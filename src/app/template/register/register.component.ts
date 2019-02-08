@@ -10,7 +10,7 @@ import {SregisterService} from '../../service/sregister.service';
 export class RegisterComponent implements OnInit {
 
   constructor(private registerService: SregisterService) { }
-
+  actionButton ="OK";
   ngOnInit() {
   	this.resetForm();
   }
@@ -28,9 +28,14 @@ export class RegisterComponent implements OnInit {
   	}
   }
 
-  onSubmit(form:NgForm){
-  	this.registerService.save(form.value);
-  	this.resetForm(null);
+  onSubmit(register:NgForm){
+    if(register.value.id == "" || register.value.id == null){
+      this.registerService.save(register.value);
+      this.resetForm(null);
+    }else{
+      this.registerService.update(register.value);
+      this.registerService.refreshList();
+      this.resetForm(null);
+    }
   }
-
 }
