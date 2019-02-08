@@ -11,6 +11,7 @@ import {Register} from '../../model/register';
 export class RegisterlistComponent implements OnInit {
 
   constructor(private registerService: SregisterService){ }
+  data;
   
   ngOnInit() {
     this.data = this.registerService.refreshList();
